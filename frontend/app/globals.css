@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #000000;
+  /* The landing page's ground colour. Near-black, faintly blue, so the pixel
+     art's greens and the three house accents don't read as neon on pure #000. */
+  --color-ink-deep: #05070d;
+  --color-ink-raised: #0b1220;
+  --color-tech: #7dd3fc;
+  --color-nontech: #fcd34d;
+  --color-join: #6ee7b7;
+  --font-retro: 'Press Start 2P', cursive;
+  --font-body: 'Inter', sans-serif;
+  /* HUD / telemetry readouts. Mono keeps ticking numbers from reflowing. */
+  --font-mono: 'Share Tech Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Anchor jumps must clear the fixed nav, or the heading lands under it. */
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    /* Was `overflow: hidden` for the full-screen game. The landing page scrolls,
+       so only the horizontal axis is clipped now; /play takes itself out of flow
+       with `fixed inset-0` instead of relying on a global lock.
+       `clip`, not `hidden`: hidden makes body a scroll container and silently
+       breaks the `position: sticky` the scrolly houses section depends on. */
+    overflow-x: clip;
+    background: var(--color-ink-deep);
+    font-family: var(--font-body);
+  }
+
+  /* Pixel art wants nearest-neighbour; icons do not. */
+  svg {
+    image-rendering: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .font-retro {
+    font-family: var(--font-retro);
+  }
+
+  /* Reveals the scene: black covers the screen, then shrinks away.
+     1.2s matches IRIS_MS in app/page.tsx — change both together. */
+  .iris-close {
+    animation: irisClose 1.2s ease-in forwards;
+  }
+
+  /* Closes the scene: the same keyframes played backwards. */
+  .iris-shut {
+    animation: irisClose 1.2s ease-in reverse forwards;
+  }
+
+  @keyframes irisClose {
+    0% { clip-path: circle(150% at 50% 50%); }
+    100% { clip-path: circle(0% at 50% 50%); }
+  }
+
+  .nav-line {
+    transition: width 0.3s ease-in-out;
+  }
+
+  .group:hover .nav-line {
+    width: 100%;
+  }
+
+  .scanline {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+  }
+
+  /* ---- Robotics / technical layer ---------------------------------------
+     Shared visual language for the redesigned hero and the polished sections:
+     a blueprint grid, a HUD readout face, and a small set of ambient
+     keyframes. All motion is gated by prefers-reduced-motion at the bottom. */
+
+  .font-mono-tech {
+    font-family: var(--font-mono);
+  }
+
+  /* Faint engineering grid. Two crosshatched gradients; the size var lets a
+     caller tighten or loosen the mesh without redefining the paint. */
+  .blueprint-grid {
+    --grid: 42px;
+    background-image:
+      linear-gradient(to right, rgba(125, 211, 252, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(125, 211, 252, 0.07) 1px, transparent 1px);
+    background-size: var(--grid) var(--grid);
+  }
+
+  /* Card/tile hover: lift + accent ring + glow. Only transform/box-shadow/
+     border animate, so it stays on the compositor. Accent via --tech-accent
+     (defaults to cyan); set it inline per house to recolour. */
+  .tech-hover {
+    --tech-accent: var(--color-tech);
+    transition:
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .tech-hover:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklch, var(--tech-accent) 60%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--tech-accent) 35%, transparent),
+      0 18px 40px -20px color-mix(in oklch, var(--tech-accent) 55%, transparent);
+  }
+
+  /* A sweeping highlight that crosses a tile on hover (the ::after rides a
+     transform, so it composites). Pair with `relative overflow-hidden`. */
+  .tech-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .tech-sweep::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(125, 211, 252, 0.14) 50%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+  .tech-sweep:hover::after {
+    transform: translateX(120%);
+  }
+
+  .animate-node-pulse {
+    animation: nodePulse 2.6s ease-in-out infinite;
+  }
+  .animate-radar-sweep {
+    animation: radarSweep 6s linear infinite;
+  }
+  .animate-grid-drift {
+    animation: gridDrift 24s linear infinite;
+  }
+  .animate-hud-flicker {
+    animation: hudFlicker 5s steps(1) infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.35); }
+  }
+  @keyframes radarSweep {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
+  }
+  /* Drifts the blueprint grid by exactly one cell so the loop is seamless. */
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to { background-position: 42px 42px; }
+  }
+  @keyframes hudFlicker {
+    0%, 92%, 100% { opacity: 1; }
+    93% { opacity: 0.55; }
+    95% { opacity: 1; }
+    97% { opacity: 0.7; }
+  }
+
+  /* One switch kills every ambient loop above; hover transitions stay (they
+     are user-initiated and brief, which reduced-motion allows). */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-node-pulse,
+    .animate-radar-sweep,
+    .animate-grid-drift,
+    .animate-hud-flicker {
+      animation: none;
+    }
+    .tech-sweep::after {
+      transition: none;
+    }
+  }
+}

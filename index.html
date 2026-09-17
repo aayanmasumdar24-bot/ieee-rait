@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IEEE RAIT — Junior Committee 2025–26</title>
+<meta name="description" content="Six domains. Eighteen roles. One chapter that builds the things others only plan. Apply to the IEEE RAIT Junior Committee.">
+<meta name="theme-color" content="#0A0A0D">
+<meta property="og:title" content="IEEE RAIT — Junior Committee 2025–26">
+<meta property="og:description" content="The engineers behind everything.">
+<meta property="og:type" content="website">
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM — SIGNAL
+   Codename: field terminal in the dark
+   ═══════════════════════════════════════════════ */
+:root {
+  /* Foundations */
+  --ink:           #0A0A0D;
+  --surface-1:     #111118;
+  --surface-2:     #191924;
+  --border-subtle: #22222E;
+  --border:        #2E2E40;
+
+  /* Text */
+  --text-primary:  #F2EFE8;
+  --text-secondary:#A0A0BA;
+  --text-tertiary: #5C5C72;
+
+  /* Accents */
+  --blue:          #3B5EFF;
+  --blue-dim:      rgba(59,94,255,0.12);
+  --gold:          #C9A84C;
+  --gold-dim:      rgba(201,168,76,0.08);
+  --red:           #FF4B4B;
+  --green:         #22C55E;
+
+  /* Domain nodes */
+  --node-ops:  #3B5EFF;
+  --node-rd:   #9B6FFF;
+  --node-pe:   #FF8A3B;
+  --node-cc:   #3BFFB0;
+  --node-td:   #FF4B6E;
+  --node-so:   #FFCC3B;
+
+  /* Type */
+  --disp:  'Syne', system-ui, sans-serif;
+  --body:  'DM Sans', system-ui, sans-serif;
+  --mono:  'Geist Mono', ui-monospace, monospace;
+
+  /* Type scale */
+  --t-2xs: 0.6875rem;   /* 11px */
+  --t-xs:  0.8125rem;   /* 13px */
+  --t-sm:  0.875rem;    /* 14px */
+  --t-base:1rem;        /* 16px */
+  --t-lg:  1.125rem;    /* 18px */
+  --t-xl:  1.375rem;    /* 22px */
+  --t-2xl: 1.75rem;     /* 28px */
+  --t-3xl: 2.25rem;     /* 36px */
+  --t-4xl: 3rem;        /* 48px */
+  --t-hero:clamp(2.75rem, 8vw, 4.5rem);
+  --t-big: clamp(4rem, 12vw, 6rem);
+
+  /* Spacing */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px;
+  --sp-4: 16px; --sp-5: 20px;  --sp-6: 24px;
+  --sp-8: 32px; --sp-10:40px;  --sp-12:48px;
+  --sp-16:64px; --sp-24:96px;  --sp-32:128px;
+
+  /* Motion */
+  --ease-appear:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-disappear:cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-camera:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-narrative:cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+/* ── Reset ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--ink);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Skip Link ─────────────────────────────── */
+.skip-link {
+  position: fixed; top: var(--sp-4); left: var(--sp-4);
+  z-index: 1000;
+  background: var(--gold); color: var(--ink);
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: var(--sp-2) var(--sp-4);
+  text-decoration: none;
+  transform: translateY(-100px);
+  transition: transform 0.2s;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ── Global Nav ────────────────────────────── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--sp-5) var(--sp-8);
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+#nav.scrolled {
+  background: rgba(10,10,13,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nav-logo {
+  font-family: var(--mono); font-size: var(--t-xs);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-secondary); text-decoration: none;
+  transition: color 0.18s;
+}
+.nav-logo span { color: var(--blue); }
+.nav-logo:hover { color: var(--text-primary); }
+
+.nav-links {
+  display: flex; align-items: center; gap: var(--sp-8);
+  list-style: none;
+}
+@media (max-width: 768px) { .nav-links { display: none; } }
+.nav-links a {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-tertiary); text-decoration: none;
+  transition: color 0.18s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px; background: var(--blue);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.28s var(--ease-appear);
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.btn-join {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink);
+  border: none; padding: var(--sp-2) var(--sp-6);
+  cursor: pointer; transition: background 0.18s, transform 0.15s;
+  font-weight: 600;
+}
+.btn-join:hover { background: #d4b05a; transform: translateY(-1px); }
+.btn-join:active { transform: translateY(0) scale(0.98); }
+.btn-join:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Chapter progress dots */
+.chapter-progress {
+  position: fixed; top: 68px; left: 50%; transform: translateX(-50%);
+  z-index: 49; display: flex; gap: var(--sp-3); align-items: center;
+  opacity: 0; transition: opacity 0.4s;
+}
+.chapter-progress.visible { opacity: 1; }
+.cp-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--border); transition: background 0.35s, transform 0.35s;
+}
+.cp-dot.active { background: var(--blue); transform: scale(1.4); }
+.cp-dot.done { background: var(--text-tertiary); }
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px;
+  z-index: 51;
+  background: var(--border-subtle);
+}
+.progress-bar-fill {
+  height: 100%; background: var(--blue);
+  transform-origin: left; transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+/* ── WebGL Canvas ───────────────────────────── */
+#webgl-canvas {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Main scroll container ──────────────────── */
+#scroll-driver {
+  position: relative;
+  height: 600vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── DOM Overlay ────────────────────────────── */
+#overlay {
+  position: fixed; inset: 0;
+  z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: center;
+  padding: 0 var(--sp-32) 0 var(--sp-16);
+  pointer-events: none;
+}
+@media (max-width: 1024px) { #overlay { padding: 0 var(--sp-8); } }
+
+/* ── Scenes ─────────────────────────────────── */
+.scene {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 96px var(--sp-32) var(--sp-16);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.72s var(--ease-appear);
+  max-width: 1440px; margin: 0 auto;
+}
+.scene.active { opacity: 1; pointer-events: auto; }
+@media (max-width: 1024px) { .scene { padding: 96px var(--sp-8) var(--sp-8); } }
+
+/* ── Typography ─────────────────────────────── */
+.eyebrow {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: var(--sp-5);
+  display: flex; align-items: center; gap: var(--sp-3);
+}
+.eyebrow::before {
+  content: ''; width: 24px; height: 1px; background: var(--blue); flex-shrink: 0;
+}
+
+.headline {
+  font-family: var(--disp); font-size: var(--t-hero);
+  font-weight: 700; line-height: 1.04;
+  letter-spacing: -0.03em; color: var(--text-primary);
+  max-width: 12ch;
+}
+.headline .accent { color: var(--blue); }
+
+.subhead {
+  font-family: var(--body); font-size: var(--t-lg);
+  line-height: 1.6; color: var(--text-secondary);
+  max-width: 48ch; margin-top: var(--sp-6);
+}
+
+.scroll-hint {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-top: var(--sp-12);
+  display: flex; align-items: center; gap: var(--sp-3);
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
+}
+.scroll-hint .arrow {
+  display: inline-block;
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); }
+}
+
+/* ── Scene 1: Hero ──────────────────────────── */
+#scene-1 { padding-left: var(--sp-32); }
+@media (max-width: 1024px) { #scene-1 { padding-left: var(--sp-8); } }
+
+/* ── Scene 2: Network ───────────────────────── */
+#scene-2 .scene-headline {
+  font-family: var(--disp); font-size: var(--t-3xl);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: var(--sp-10);
+}
+.choice-prompt {
+  margin-top: var(--sp-10);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--sp-8);
+}
+.choice-label {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: var(--sp-5);
+}
+.choice-buttons {
+  display: flex; gap: var(--sp-4); flex-wrap: wrap;
+}
+.choice-btn {
+  font-family: var(--mono); font-size: var(--t-xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: var(--sp-3) var(--sp-6);
+  cursor: pointer; transition: all 0.22s var(--ease-appear);
+  pointer-events: auto;
+  position: relative; overflow: hidden;
+}
+.choice-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--blue-dim); opacity: 0;
+  transition: opacity 0.22s;
+}
+.choice-btn:hover { color: var(--text-primary); border-color: var(--blue); }
+.choice-btn:hover::before { opacity: 1; }
+.choice-btn.selected {
+  background: var(--blue-dim); border-color: var(--blue);
+  color: var(--text-primary);
+}
+.choice-btn:active { transform: scale(0.97); }
+.choice-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* Domain tooltip cards */
+.domain-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4); margin-top: var(--sp-8); max-width: 720px;
+}
+@media (max-width: 768px) { .domain-grid { grid-template-columns: repeat(2, 1fr); } }
+.domain-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  padding: var(--sp-5) var(--sp-6);
+  transition: border-color 0.22s, background 0.22s;
+  cursor: default;
+}
+.domain-card:hover { border-color: var(--border); background: var(--surface-2); }
+.domain-card-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-bottom: var(--sp-3);
+}
+.domain-card-name {
+  font-family: var(--disp); font-size: var(--t-base);
+  font-weight: 700; margin-bottom: var(--sp-1);
+}
+.domain-card-roles {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.08em; color: var(--text-tertiary);
+}
+
+/* ── Scene 3: Proof (path cards) ────────────── */
+.path-content { display: none; }
+.path-content.visible { display: block; }
+
+.path-lead {
+  font-family: var(--body); font-size: var(--t-lg);
+  line-height: 1.6; color: var(--text-secondary);
+  max-width: 52ch; margin-bottom: var(--sp-8);
+  border-left: 1px solid var(--border);
+  padding-left: var(--sp-6);
+}
+
+.role-list { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 600px; }
+.role-item {
+  display: flex; align-items: baseline; gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  transition: border-color 0.2s, background 0.2s;
+}
+.role-item:hover { border-color: var(--border); background: var(--surface-2); }
+.role-id {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.08em; color: var(--blue);
+  flex-shrink: 0; min-width: 40px;
+}
+.role-title {
+  font-family: var(--disp); font-size: var(--t-base);
+  font-weight: 700; color: var(--text-primary);
+  flex: 1;
+}
+.role-desc {
+  font-size: var(--t-sm); color: var(--text-secondary); line-height: 1.5;
+  flex: 2;
+}
+@media (max-width: 768px) {
+  .role-item { flex-direction: column; gap: var(--sp-1); }
+  .role-desc { display: none; }
+}
+
+/* ── Scene 4: Legacy ────────────────────────── */
+.stats-bar {
+  display: flex; gap: var(--sp-12); margin-bottom: var(--sp-12);
+  flex-wrap: wrap;
+}
+.stat-block {}
+.stat-num {
+  font-family: var(--disp); font-size: var(--t-4xl);
+  font-weight: 800; line-height: 1; color: var(--text-primary);
+}
+.stat-num .unit {
+  font-size: var(--t-lg); color: var(--gold); margin-left: 2px;
+}
+.stat-label {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-top: var(--sp-2);
+}
+
+.timeline { max-width: 600px; }
+.timeline-item {
+  display: grid; grid-template-columns: 64px 1fr;
+  gap: 0 var(--sp-6); margin-bottom: var(--sp-6);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+.timeline-year {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.1em; color: var(--gold);
+  padding-top: 2px;
+}
+.timeline-title {
+  font-family: var(--disp); font-size: var(--t-base);
+  font-weight: 700; margin-bottom: var(--sp-1);
+}
+.timeline-desc {
+  font-size: var(--t-sm); color: var(--text-secondary); line-height: 1.5;
+}
+.timeline-metric {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  color: var(--blue); margin-top: var(--sp-1);
+}
+
+/* Photo grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+  max-width: 720px;
+}
+.photo-frame {
+  aspect-ratio: 4/3;
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  position: relative;
+}
+.photo-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s var(--ease-appear), filter 0.4s;
+  filter: brightness(0.75) saturate(0.8);
+}
+.photo-frame:hover img { transform: scale(1.04); filter: brightness(0.9) saturate(1); }
+.photo-shimmer {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--surface-1) 0%, var(--border-subtle) 50%, var(--surface-1) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+.photo-frame.loaded .photo-shimmer { display: none; }
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Scene 5: Domains Reference ─────────────── */
+.domains-header {
+  font-family: var(--disp); font-size: var(--t-3xl);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: var(--sp-8);
+}
+
+.accordion { max-width: 680px; width: 100%; }
+.accordion-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.accordion-trigger {
+  width: 100%; display: flex; align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) 0;
+  background: transparent; border: none; cursor: pointer;
+  text-align: left; color: var(--text-primary);
+  pointer-events: auto;
+}
+.accordion-trigger-inner {
+  display: flex; align-items: center; gap: var(--sp-4);
+}
+.acc-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.acc-domain-name {
+  font-family: var(--disp); font-size: var(--t-xl);
+  font-weight: 700; line-height: 1;
+}
+.acc-count {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.08em; color: var(--text-tertiary); margin-left: 2px;
+}
+.acc-arrow {
+  width: 20px; height: 20px; flex-shrink: 0;
+  transition: transform 0.28s var(--ease-spring);
+  color: var(--text-tertiary);
+}
+.accordion-item.open .acc-arrow { transform: rotate(180deg); }
+.accordion-content {
+  overflow: hidden; max-height: 0;
+  transition: max-height 0.42s var(--ease-appear);
+}
+.accordion-item.open .accordion-content { max-height: 600px; }
+.accordion-body { padding-bottom: var(--sp-6); }
+.acc-desc {
+  font-size: var(--t-sm); color: var(--text-secondary);
+  line-height: 1.65; max-width: 52ch; margin-bottom: var(--sp-5);
+}
+.acc-roles {
+  display: flex; flex-wrap: wrap; gap: var(--sp-2);
+}
+.acc-role-tag {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: var(--sp-1) var(--sp-3);
+  white-space: nowrap;
+}
+.accordion-trigger:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+
+/* ── Scene 6: Recruitment CTA ───────────────── */
+#scene-6 {
+  text-align: center;
+  align-items: center;
+  padding-left: var(--sp-8);
+  padding-right: var(--sp-8);
+}
+.big-word {
+  font-family: var(--disp); font-size: var(--t-big);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 0.9; color: var(--text-primary);
+  margin-bottom: var(--sp-6);
+}
+.big-word .gold { color: var(--gold); }
+.cta-sub {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: var(--sp-10);
+}
+.track-cards {
+  display: flex; gap: var(--sp-5); flex-wrap: wrap; justify-content: center;
+}
+.track-card {
+  width: clamp(240px, 35vw, 320px);
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  padding: var(--sp-8);
+  cursor: pointer; pointer-events: auto;
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+  text-align: left;
+}
+.track-card:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  transform: translateY(-2px);
+}
+.track-card:active { transform: translateY(0) scale(0.98); }
+.track-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.track-card.recommended { border-color: var(--gold); }
+
+.track-tag {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: var(--sp-4);
+}
+.track-name {
+  font-family: var(--disp); font-size: var(--t-2xl);
+  font-weight: 700; line-height: 1.1;
+  margin-bottom: var(--sp-4);
+}
+.track-desc {
+  font-size: var(--t-sm); color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: var(--sp-6);
+}
+.track-cta {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: var(--sp-2);
+}
+.track-cta .arrow { transition: transform 0.2s; }
+.track-card:hover .track-cta .arrow { transform: translateX(4px); }
+
+/* ── Preloader ───────────────────────────────── */
+#preloader {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--ink);
+  display: grid; place-items: center;
+  transition: opacity 0.7s var(--ease-disappear);
+}
+#preloader.gone { opacity: 0; pointer-events: none; }
+.preloader-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.preloader-label {
+  position: absolute; bottom: var(--sp-8);
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-tertiary);
+  animation: blink-label 1.2s ease-in-out infinite;
+}
+@keyframes blink-label {
+  0%, 100% { opacity: 0.3; } 50% { opacity: 0.9; }
+}
+
+/* ── Modal ───────────────────────────────────── */
+#modal {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--sp-6);
+  visibility: hidden; opacity: 0;
+  transition: opacity 0.35s, visibility 0.35s;
+}
+#modal.open { visibility: visible; opacity: 1; }
+#modal.open .modal-panel { transform: scale(1) translateY(0); }
+
+.modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(10,10,13,0.92);
+  backdrop-filter: blur(6px);
+}
+.modal-panel {
+  position: relative; z-index: 1;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  width: 100%; max-width: 640px; max-height: 90dvh;
+  overflow-y: auto; padding: var(--sp-10);
+  transform: scale(0.94) translateY(16px);
+  transition: transform 0.38s var(--ease-spring);
+}
+@media (max-width: 640px) {
+  #modal { align-items: flex-end; padding: 0; }
+  .modal-panel { max-height: 85dvh; border-radius: 0; padding: var(--sp-8) var(--sp-6); }
+}
+.modal-close {
+  position: absolute; top: var(--sp-5); right: var(--sp-5);
+  background: transparent; border: none; cursor: pointer;
+  color: var(--text-tertiary); padding: var(--sp-2);
+  transition: color 0.18s;
+}
+.modal-close:hover { color: var(--text-primary); }
+.modal-close:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.modal-eyebrow {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: var(--sp-4);
+}
+.modal-title {
+  font-family: var(--disp); font-size: var(--t-3xl);
+  font-weight: 700; line-height: 1.1; margin-bottom: var(--sp-6);
+}
+.modal-desc {
+  font-size: var(--t-base); color: var(--text-secondary);
+  line-height: 1.65; margin-bottom: var(--sp-8);
+}
+
+/* Modal step 2: what to expect */
+.expect-list {
+  display: flex; flex-direction: column; gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+}
+.expect-item {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+  padding: var(--sp-4); border: 1px solid var(--border-subtle);
+}
+.expect-bullet {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  color: var(--blue); flex-shrink: 0; margin-top: 2px;
+}
+.expect-text { font-size: var(--t-sm); color: var(--text-secondary); line-height: 1.5; }
+
+/* Form placeholder */
+.form-placeholder {
+  border: 1px solid var(--border);
+  padding: var(--sp-12) var(--sp-8);
+  text-align: center; background: var(--surface-1);
+}
+.form-coming-soon {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: var(--sp-4);
+}
+.form-link {
+  display: inline-flex; align-items: center; gap: var(--sp-3);
+  font-family: var(--mono); font-size: var(--t-xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink);
+  padding: var(--sp-3) var(--sp-8);
+  text-decoration: none; font-weight: 600;
+  transition: background 0.18s;
+}
+.form-link:hover { background: #d4b05a; }
+
+/* Modal nav buttons */
+.modal-actions {
+  display: flex; gap: var(--sp-4); flex-wrap: wrap;
+}
+.btn-back {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: var(--sp-3) var(--sp-6);
+  cursor: pointer; transition: all 0.18s;
+}
+.btn-back:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+.btn-back:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.btn-proceed {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--blue); color: #fff;
+  border: none; padding: var(--sp-3) var(--sp-8);
+  cursor: pointer; transition: background 0.18s, transform 0.15s;
+}
+.btn-proceed:hover { background: #4a6dff; }
+.btn-proceed:active { transform: scale(0.98); }
+.btn-proceed:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Modal step indicator */
+.modal-steps {
+  display: flex; gap: var(--sp-2); margin-bottom: var(--sp-6);
+}
+.modal-step-dot {
+  height: 2px; flex: 1;
+  background: var(--border-subtle);
+  transition: background 0.3s;
+}
+.modal-step-dot.active { background: var(--blue); }
+.modal-step-dot.done { background: var(--text-tertiary); }
+
+/* ── Notification ───────────────────────────── */
+.notification {
+  position: fixed; bottom: var(--sp-8); right: var(--sp-8);
+  z-index: 150;
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: var(--sp-4) var(--sp-6);
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-secondary);
+  transform: translateY(80px); opacity: 0;
+  transition: transform 0.35s var(--ease-spring), opacity 0.35s;
+  pointer-events: none;
+}
+.notification.show { transform: translateY(0); opacity: 1; }
+.notification .notif-accent { color: var(--gold); }
+
+/* ── SVG Fallback ───────────────────────────── */
+#svg-fallback {
+  position: fixed; inset: 0; z-index: 0;
+  display: none;
+}
+
+/* ── Mobile menu ─────────────────────────────── */
+.hamburger {
+  display: none; background: transparent; border: none;
+  cursor: pointer; padding: var(--sp-2); color: var(--text-secondary);
+}
+@media (max-width: 768px) { .hamburger { display: flex; } }
+.hamburger:focus-visible { outline: 2px solid var(--blue); }
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 80;
+  background: rgba(10,10,13,0.97); backdrop-filter: blur(8px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: var(--sp-8);
+  visibility: hidden; opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.mobile-menu.open { visibility: visible; opacity: 1; }
+.mobile-menu a {
+  font-family: var(--disp); font-size: var(--t-3xl);
+  font-weight: 700; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.18s;
+}
+.mobile-menu a:hover { color: var(--text-primary); }
+
+/* ── Footer ─────────────────────────────────── */
+footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 5; pointer-events: none;
+  padding: 0 var(--sp-8) var(--sp-5);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-links {
+  display: flex; gap: var(--sp-6); list-style: none;
+  pointer-events: auto;
+}
+.footer-links a {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-tertiary); text-decoration: none;
+  transition: color 0.18s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+.footer-copy {
+  font-family: var(--mono); font-size: var(--t-2xs);
+  letter-spacing: 0.08em; color: var(--text-tertiary);
+}
+@media (max-width: 640px) { footer { display: none; } }
+
+/* ── Utility ─────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ── Reduced motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .scroll-hint, .preloader-label { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- Progress bar -->
+<div class="progress-bar" role="progressbar" aria-label="Story progress">
+  <div class="progress-bar-fill" id="progress-fill"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="nav" aria-label="Primary navigation">
+  <a href="#" class="nav-logo" aria-label="IEEE RAIT home">
+    IEEE <span>RAIT</span>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#scene-2">Domains</a></li>
+    <li><a href="#scene-4">Legacy</a></li>
+    <li><a href="#scene-5">Roles</a></li>
+    <li><a href="#scene-6">Join</a></li>
+  </ul>
+  <button class="btn-join" id="nav-join" aria-haspopup="dialog">Join Now</button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+      <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- Chapter progress dots -->
+<div class="chapter-progress" id="chapter-progress" aria-label="Story progress">
+  <div class="cp-dot" data-scene="1"></div>
+  <div class="cp-dot" data-scene="2"></div>
+  <div class="cp-dot" data-scene="3"></div>
+  <div class="cp-dot" data-scene="4"></div>
+  <div class="cp-dot" data-scene="5"></div>
+  <div class="cp-dot" data-scene="6"></div>
+</div>
+
+<!-- WebGL Canvas -->
+<canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+<!-- SVG Fallback (shown when WebGL unavailable) -->
+<svg id="svg-fallback" viewBox="0 0 1440 900" aria-hidden="true">
+  <defs>
+    <radialGradient id="gNode" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Edges -->
+  <line x1="720" y1="280" x2="520" y2="480" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="720" y1="280" x2="920" y2="480" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="720" y1="280" x2="460" y2="340" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="720" y1="280" x2="980" y2="340" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="720" y1="280" x2="720" y2="560" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="520" y1="480" x2="720" y2="560" stroke="#2E2E40" stroke-width="1"/>
+  <line x1="920" y1="480" x2="720" y2="560" stroke="#2E2E40" stroke-width="1"/>
+  <!-- Nodes -->
+  <circle cx="720" cy="280" r="40" fill="#3B5EFF" fill-opacity="0.15"/>
+  <circle cx="720" cy="280" r="10" fill="#3B5EFF"/>
+  <circle cx="460" cy="340" r="30" fill="#9B6FFF" fill-opacity="0.15"/>
+  <circle cx="460" cy="340" r="8" fill="#9B6FFF"/>
+  <circle cx="980" cy="340" r="30" fill="#FF8A3B" fill-opacity="0.15"/>
+  <circle cx="980" cy="340" r="8" fill="#FF8A3B"/>
+  <circle cx="520" cy="480" r="30" fill="#3BFFB0" fill-opacity="0.15"/>
+  <circle cx="520" cy="480" r="8" fill="#3BFFB0"/>
+  <circle cx="920" cy="480" r="30" fill="#FF4B6E" fill-opacity="0.15"/>
+  <circle cx="920" cy="480" r="8" fill="#FF4B6E"/>
+  <circle cx="720" cy="560" r="30" fill="#FFCC3B" fill-opacity="0.15"/>
+  <circle cx="720" cy="560" r="8" fill="#FFCC3B"/>
+</svg>
+
+<!-- Scroll driver (invisible, makes scroll work) -->
+<div id="scroll-driver" aria-hidden="true"></div>
+
+<!-- Main overlay: all scenes -->
+<main id="main-content">
+  <div id="overlay">
+
+    <!-- ─── SCENE 1: HERO ─────────────────────── -->
+    <section class="scene" id="scene-1" aria-label="Hero">
+      <p class="eyebrow">IEEE RAIT Student Branch · Junior Committee 2025–26</p>
+      <h1 class="headline">
+        The engineers<br>
+        behind <span class="accent">everything.</span>
+      </h1>
+      <p class="subhead">
+        Six domains. Eighteen roles. One chapter that builds the things others only plan.
+      </p>
+      <p class="scroll-hint" aria-label="Scroll to explore">
+        Scroll to enter <span class="arrow">↓</span>
+      </p>
+    </section>
+
+    <!-- ─── SCENE 2: NETWORK ──────────────────── -->
+    <section class="scene" id="scene-2" aria-label="The network">
+      <p class="eyebrow">The architecture</p>
+      <p class="scene-headline">Six domains that run the chapter.</p>
+
+      <div class="domain-grid" role="list">
+        <div class="domain-card" role="listitem" style="--accent:#3B5EFF">
+          <div class="domain-card-dot" style="background:#3B5EFF"></div>
+          <div class="domain-card-name">Core &amp; Ops</div>
+          <div class="domain-card-roles">4 roles</div>
+        </div>
+        <div class="domain-card" role="listitem">
+          <div class="domain-card-dot" style="background:#9B6FFF"></div>
+          <div class="domain-card-name">Research &amp; Dev</div>
+          <div class="domain-card-roles">3 roles</div>
+        </div>
+        <div class="domain-card" role="listitem">
+          <div class="domain-card-dot" style="background:#FF8A3B"></div>
+          <div class="domain-card-name">Public Engagement</div>
+          <div class="domain-card-roles">3 roles</div>
+        </div>
+        <div class="domain-card" role="listitem">
+          <div class="domain-card-dot" style="background:#3BFFB0"></div>
+          <div class="domain-card-name">Content &amp; Creative</div>
+          <div class="domain-card-roles">4 roles</div>
+        </div>
+        <div class="domain-card" role="listitem">
+          <div class="domain-card-dot" style="background:#FF4B6E"></div>
+          <div class="domain-card-name">Technical &amp; Design</div>
+          <div class="domain-card-roles">2 roles</div>
+        </div>
+        <div class="domain-card" role="listitem">
+          <div class="domain-card-dot" style="background:#FFCC3B"></div>
+          <div class="domain-card-name">Sponsorship</div>
+          <div class="domain-card-roles">2 roles</div>
+        </div>
+      </div>
+
+      <div class="choice-prompt">
+        <p class="choice-label">Where do you fit?</p>
+        <div class="choice-buttons" role="group" aria-label="Choose your path">
+          <button class="choice-btn" data-path="technical" aria-pressed="false">Build Things</button>
+          <button class="choice-btn" data-path="creative" aria-pressed="false">Tell Stories</button>
+          <button class="choice-btn" data-path="operations" aria-pressed="false">Run Things</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SCENE 3: PROOF ────────────────────── -->
+    <section class="scene" id="scene-3" aria-label="Your path">
+      <p class="eyebrow" id="s3-eyebrow">Choose a path above</p>
+      <h2 class="headline" id="s3-headline" style="font-size:var(--t-4xl)">Your roles.</h2>
+
+      <!-- Technical path -->
+      <div class="path-content" id="path-technical">
+        <p class="path-lead">
+          You build what others use. Technical roles own the infrastructure that makes every IEEE RAIT event possible.
+        </p>
+        <div class="role-list" role="list">
+          <div class="role-item" role="listitem">
+            <span class="role-id">TF</span>
+            <span class="role-title">Technical Facilitator</span>
+            <span class="role-desc">Design and run the workshops. You leave with it working.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">CWD</span>
+            <span class="role-title">Chief Web Developer</span>
+            <span class="role-desc">Portal, uptime, security — the digital spine of the branch.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">DBA</span>
+            <span class="role-title">Database Administrator</span>
+            <span class="role-desc">Registrations, backup, privacy compliance.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">DFA</span>
+            <span class="role-title">Design &amp; Fabrication Lead</span>
+            <span class="role-desc">Hardware prototypes, lab space, maker culture.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creative path -->
+      <div class="path-content" id="path-creative">
+        <p class="path-lead">
+          Every brief, every frame, every post. Creative roles shape how IEEE RAIT is seen — externally and internally.
+        </p>
+        <div class="role-list" role="list">
+          <div class="role-item" role="listitem">
+            <span class="role-id">CEd</span>
+            <span class="role-title">Content Editor</span>
+            <span class="role-desc">Vision magazine, Bracket newsletter — you write what people read.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">CrFA</span>
+            <span class="role-title">Creative &amp; Film Associate</span>
+            <span class="role-desc">Visual identity, event films, social-first design.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">MktF</span>
+            <span class="role-title">Marketing Facilitator</span>
+            <span class="role-desc">Campaigns that convert: awareness to attendance.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">PubF</span>
+            <span class="role-title">Publications Facilitator</span>
+            <span class="role-desc">IEEE Xplore is reachable. You help get papers there.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operations path -->
+      <div class="path-content" id="path-operations">
+        <p class="path-lead">
+          Nothing happens without someone planning it. Operations roles make the hard work invisible — so nothing fails.
+        </p>
+        <div class="role-list" role="list">
+          <div class="role-item" role="listitem">
+            <span class="role-id">DoP</span>
+            <span class="role-title">Director of Programs</span>
+            <span class="role-desc">Own the calendar. Every event starts with you.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">EM</span>
+            <span class="role-title">Event Manager</span>
+            <span class="role-desc">Logistics, vendors, day-of execution — no failures on your watch.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">LF</span>
+            <span class="role-title">Liaison Facilitator</span>
+            <span class="role-desc">Faculty, sponsors, partner colleges — you hold the relationships.</span>
+          </div>
+          <div class="role-item" role="listitem">
+            <span class="role-id">SF</span>
+            <span class="role-title">Sponsorship Facilitator</span>
+            <span class="role-desc">Pitch decks, sponsor deliverables, ₹ raised — tangible results.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SCENE 4: LEGACY ───────────────────── -->
+    <section class="scene" id="scene-4" aria-label="Our legacy">
+      <p class="eyebrow">Flight log</p>
+      <div class="stats-bar" role="list">
+        <div class="stat-block" role="listitem">
+          <div class="stat-num" id="stat-events">01<span class="unit">+</span></div>
+          <div class="stat-label">Events this cycle</div>
+        </div>
+        <div class="stat-block" role="listitem">
+          <div class="stat-num">22<span class="unit"></span></div>
+          <div class="stat-label">Members trained</div>
+        </div>
+        <div class="stat-block" role="listitem">
+          <div class="stat-num">5<span class="unit"></span></div>
+          <div class="stat-label">Departments reached</div>
+        </div>
+      </div>
+
+      <div class="timeline" role="list">
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-year">01 Aug<br>2026</div>
+          <div>
+            <div class="timeline-title">Prompting Odyssey</div>
+            <div class="timeline-desc">Prompt engineering and generative AI. Six hours, hands on keyboards.</div>
+            <div class="timeline-metric">22 attendees · 5 departments · workbook published</div>
+          </div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-year">Coming<br>next</div>
+          <div>
+            <div class="timeline-title">Workshop series · Aug–Sep</div>
+            <div class="timeline-desc">Opening workshop sequence for the new recruitment cycle.</div>
+            <div class="timeline-metric">Scheduled</div>
+          </div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-year">Oct–Nov</div>
+          <div>
+            <div class="timeline-title">Flagship technical event</div>
+            <div class="timeline-desc">Cross-departmental, competitive, with an industry speaker.</div>
+            <div class="timeline-metric">Planning phase</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo grid -->
+      <div class="photo-grid" id="photo-grid" role="list" aria-label="Event photos"></div>
+    </section>
+
+    <!-- ─── SCENE 5: DOMAINS REFERENCE ──────── -->
+    <section class="scene" id="scene-5" aria-label="All domains and roles">
+      <p class="eyebrow">Full reference</p>
+      <h2 class="domains-header">Domains &amp; Roles</h2>
+
+      <div class="accordion" id="domains-accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="ops">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#3B5EFF"></div>
+              <div class="acc-domain-name">Core &amp; Operations <span class="acc-count">4 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">The backbone. Everything that makes IEEE RAIT function as an organization — events, partnerships, planning, and the people who hold it all together.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">DoP — Director of Programs</span>
+                <span class="acc-role-tag">EM — Event Manager</span>
+                <span class="acc-role-tag">LF — Liaison Facilitator</span>
+                <span class="acc-role-tag">NIC — Network &amp; Industry Coordinator</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="rd">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#9B6FFF"></div>
+              <div class="acc-domain-name">Research &amp; Development <span class="acc-count">3 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">IEEE Xplore is reachable. Technical facilitators, paper shepherds, and project mentors who turn ideas into things that run.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">TF — Technical Facilitator</span>
+                <span class="acc-role-tag">RF — Research Facilitator</span>
+                <span class="acc-role-tag">DFA — Design &amp; Fabrication Associate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="pe">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#FF8A3B"></div>
+              <div class="acc-domain-name">Public Engagement <span class="acc-count">3 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">Outreach, alliances, the branch's face to the world. How IEEE RAIT earns and keeps the trust of students who haven't joined yet.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">MktF — Marketing Facilitator</span>
+                <span class="acc-role-tag">OutF — Outreach Facilitator</span>
+                <span class="acc-role-tag">PR — Public Relations Associate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="cc">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#3BFFB0"></div>
+              <div class="acc-domain-name">Content &amp; Creativity <span class="acc-count">4 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">Vision magazine, Bracket newsletter, the reel, the post, the poster. Every brief, every frame, every word that reaches outside the branch.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">CEd — Content Editor</span>
+                <span class="acc-role-tag">CrFA — Creative &amp; Film Associate</span>
+                <span class="acc-role-tag">PubF — Publications Facilitator</span>
+                <span class="acc-role-tag">SocF — Social Media Facilitator</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="td">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#FF4B6E"></div>
+              <div class="acc-domain-name">Technical &amp; Design <span class="acc-count">2 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">The digital spine. Portal, database, uptime, security — the infrastructure that makes the branch work, and the people trusted to keep it running.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">CWD — Chief Web Developer</span>
+                <span class="acc-role-tag">DBA — Database Administrator</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-acc="so">
+            <div class="accordion-trigger-inner">
+              <div class="acc-dot" style="background:#FFCC3B"></div>
+              <div class="acc-domain-name">Sponsorship &amp; Outreach <span class="acc-count">2 roles</span></div>
+            </div>
+            <svg class="acc-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="acc-desc">Every event needs a budget. Sponsorship and outreach roles own the pitch, the proposal, and the relationship that follows.</p>
+              <div class="acc-roles">
+                <span class="acc-role-tag">SF — Sponsorship Facilitator</span>
+                <span class="acc-role-tag">BDA — Brand Development Associate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </section>
+
+    <!-- ─── SCENE 6: RECRUITMENT CTA ─────────── -->
+    <section class="scene" id="scene-6" aria-label="Join IEEE RAIT">
+      <div class="cta-sub">IEEE RAIT Junior Committee 2025–26</div>
+      <div class="big-word">Join.<br><span class="gold">Now.</span></div>
+
+      <div class="track-cards" role="list">
+        <div class="track-card" role="listitem" tabindex="0" id="card-core"
+             data-track="core" aria-label="Apply as JC Joint Core member">
+          <div class="track-tag">Full membership</div>
+          <div class="track-name">JC Joint Core</div>
+          <div class="track-desc">
+            Direct leadership pipeline. Domain chapter access. Workshop facilitation,
+            technical paper co-authorship, and the full IEEE global network.
+          </div>
+          <div class="track-cta">
+            Select <span class="arrow">→</span>
+          </div>
+        </div>
+        <div class="track-card" role="listitem" tabindex="0" id="card-associate"
+             data-track="associate" aria-label="Apply as Associate member">
+          <div class="track-tag">Contributor track</div>
+          <div class="track-name">Associate</div>
+          <div class="track-desc">
+            Project-based involvement. Flexible commitment. Build your portfolio
+            across domains before committing to a full role.
+          </div>
+          <div class="track-cta">
+            Select <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /overlay -->
+</main>
+
+<!-- Preloader -->
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading IEEE RAIT">
+  <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+  <p class="preloader-label" aria-hidden="true">Assembling · · ·</p>
+</div>
+
+<!-- Registration Modal -->
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-panel" id="modal-panel">
+    <button class="modal-close" id="modal-close" aria-label="Close registration">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Step 1: Track selection -->
+    <div id="modal-step-1">
+      <div class="modal-steps">
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+      <div class="modal-eyebrow">Registration Gateway</div>
+      <h2 class="modal-title" id="modal-title">Choose Your Path</h2>
+      <p class="modal-desc">Both tracks give you access to workshops, events, and the IEEE network. The difference is commitment level and leadership access.</p>
+      <div class="track-cards" style="flex-direction:column;gap:12px;margin-bottom:24px">
+        <div class="track-card" tabindex="0" id="modal-core"
+             data-track="core" style="width:100%">
+          <div class="track-tag">Full membership</div>
+          <div class="track-name">JC Joint Core</div>
+          <div class="track-desc">Domain leadership, full project ownership, IEEE Xplore co-authorship access.</div>
+          <div class="track-cta">Select <span class="arrow">→</span></div>
+        </div>
+        <div class="track-card" tabindex="0" id="modal-associate"
+             data-track="associate" style="width:100%">
+          <div class="track-tag">Contributor track</div>
+          <div class="track-name">Associate</div>
+          <div class="track-desc">Project-based, flexible commitment. Trial period before full role.</div>
+          <div class="track-cta">Select <span class="arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: What to expect -->
+    <div id="modal-step-2" style="display:none">
+      <div class="modal-steps">
+        <div class="modal-step-dot done"></div>
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+      <div class="modal-eyebrow" id="s2-track-label">JC Joint Core</div>
+      <h2 class="modal-title" id="s2-title">What You're Signing Up For</h2>
+      <div class="expect-list" id="s2-list"></div>
+      <div class="modal-actions">
+        <button class="btn-back" id="s2-back">← Back</button>
+        <button class="btn-proceed" id="s2-proceed">Proceed to Form →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Form -->
+    <div id="modal-step-3" style="display:none">
+      <div class="modal-steps">
+        <div class="modal-step-dot done"></div>
+        <div class="modal-step-dot done"></div>
+        <div class="modal-step-dot active"></div>
+      </div>
+      <div class="modal-eyebrow">Complete Your Application</div>
+      <h2 class="modal-title" id="s3-modal-title">One Minute to Apply</h2>
+      <div class="form-placeholder" id="form-area">
+        <p class="form-coming-soon">Registration opens soon</p>
+        <p style="font-size:var(--t-sm);color:var(--text-tertiary);margin-bottom:24px;line-height:1.5">
+          The form link will be available here once the recruitment cycle opens. Follow us for the announcement.
+        </p>
+        <a href="mailto:ieee@rait.ac.in" class="form-link" target="_blank" rel="noopener noreferrer">
+          Contact Us →
+        </a>
+      </div>
+      <div class="modal-actions" style="margin-top:24px">
+        <button class="btn-back" id="s3-back">← Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Notification toast -->
+<div class="notification" id="notification" role="status" aria-live="polite">
+  Path selected: <span class="notif-accent" id="notif-text"></span>
+</div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="#scene-2" class="mobile-link">Domains</a>
+  <a href="#scene-4" class="mobile-link">Legacy</a>
+  <a href="#scene-5" class="mobile-link">Roles</a>
+  <a href="#scene-6" class="mobile-link">Join</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <ul class="footer-links" role="list">
+    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <li><a href="mailto:ieee@rait.ac.in">Email</a></li>
+  </ul>
+  <p class="footer-copy">IEEE RAIT · DYPU · Navi Mumbai</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════ -->
+<script>
+/* ── State ──────────────────────────────────── */
+const STATE = {
+  currentScene: 1,
+  choice1: null,       // 'technical' | 'creative' | 'operations'
+  modalTrack: null,    // 'core' | 'associate'
+  preloaderDone: false,
+  webglReady: false,
+  reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
+};
+
+// Load from sessionStorage
+try {
+  const saved = JSON.parse(sessionStorage.getItem('ieee_state') || '{}');
+  if (saved.choice1) STATE.choice1 = saved.choice1;
+} catch(e) {}
+
+function saveState() {
+  try {
+    sessionStorage.setItem('ieee_state', JSON.stringify({ choice1: STATE.choice1 }));
+  } catch(e) {}
+}
+
+/* ── Scene management ───────────────────────── */
+const scenes = document.querySelectorAll('.scene');
+const dots = document.querySelectorAll('.cp-dot');
+const cpEl = document.getElementById('chapter-progress');
+
+function showScene(n) {
+  if (STATE.currentScene === n && n !== 1) return;
+  STATE.currentScene = n;
+
+  scenes.forEach((s, i) => {
+    s.classList.toggle('active', i + 1 === n);
+  });
+
+  dots.forEach((d, i) => {
+    d.classList.remove('active', 'done');
+    if (i + 1 === n) d.classList.add('active');
+    if (i + 1 < n) d.classList.add('done');
+  });
+
+  cpEl.classList.toggle('visible', n > 1);
+
+  // Set WebGL scene state
+  if (typeof setWebGLScene === 'function') setWebGLScene(n);
+}
+
+/* ── Scroll driver ──────────────────────────── */
+const scrollDriver = document.getElementById('scroll-driver');
+const progressFill = document.getElementById('progress-fill');
+const nav = document.getElementById('nav');
+
+const SCENE_BREAKS = [0.0, 0.04, 0.18, 0.35, 0.55, 0.72, 0.88, 1.0];
+
+function getSceneFromProgress(p) {
+  for (let i = SCENE_BREAKS.length - 2; i >= 0; i--) {
+    if (p >= SCENE_BREAKS[i]) return i + 1;
+  }
+  return 1;
+}
+
+let lastScrollY = 0;
+let ticking = false;
+
+function onScroll() {
+  if (!STATE.preloaderDone) return;
+  if (!ticking) {
+    requestAnimationFrame(updateScroll);
+    ticking = true;
+  }
+}
+
+function updateScroll() {
+  const scrollY = window.scrollY;
+  const maxScroll = scrollDriver.scrollHeight - window.innerHeight;
+  const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+  progressFill.style.transform = `scaleX(${progress})`;
+
+  const scene = getSceneFromProgress(progress);
+  showScene(scene);
+
+  // Nav appearance
+  nav.classList.toggle('scrolled', scrollY > 60);
+
+  if (typeof updateWebGLCamera === 'function') {
+    updateWebGLCamera(progress);
+  }
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ── Smooth scroll to sections ──────────────── */
+document.querySelectorAll('a[href^="#scene"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const sceneNum = parseInt(id.split('-')[1]);
+    const targetProgress = SCENE_BREAKS[sceneNum - 1] + 0.01;
+    const maxScroll = scrollDriver.scrollHeight - window.innerHeight;
+    window.scrollTo({ top: targetProgress * maxScroll, behavior: 'smooth' });
+  });
+});
+
+/* ── Path choices ───────────────────────────── */
+const choiceBtns = document.querySelectorAll('.choice-btn');
+
+choiceBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const path = btn.dataset.path;
+    STATE.choice1 = path;
+    saveState();
+
+    // Update button states
+    choiceBtns.forEach(b => {
+      b.classList.toggle('selected', b === btn);
+      b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+    });
+
+    // Show path content in scene 3
+    document.querySelectorAll('.path-content').forEach(p => p.classList.remove('visible'));
+    const pathEl = document.getElementById('path-' + path);
+    if (pathEl) pathEl.classList.add('visible');
+
+    // Update scene 3 eyebrow
+    const labels = { technical: 'Build Things', creative: 'Tell Stories', operations: 'Run Things' };
+    document.getElementById('s3-eyebrow').textContent = '→ ' + labels[path];
+    document.getElementById('s3-headline').textContent = 'Your roles.';
+
+    // Notify
+    showNotification(labels[path]);
+
+    // Scroll to scene 3
+    setTimeout(() => {
+      const targetProgress = SCENE_BREAKS[2] + 0.01;
+      const maxScroll = scrollDriver.scrollHeight - window.innerHeight;
+      window.scrollTo({ top: targetProgress * maxScroll, behavior: 'smooth' });
+    }, 350);
+  });
+});
+
+// Restore choice on load
+if (STATE.choice1) {
+  const btn = document.querySelector(`.choice-btn[data-path="${STATE.choice1}"]`);
+  if (btn) {
+    btn.classList.add('selected');
+    btn.setAttribute('aria-pressed', 'true');
+    const pathEl = document.getElementById('path-' + STATE.choice1);
+    if (pathEl) pathEl.classList.add('visible');
+  }
+}
+
+/* ── Accordion ──────────────────────────────── */
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.accordion-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+    });
+
+    // Toggle clicked
+    if (!isOpen) {
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ── Modal ───────────────────────────────────── */
+const modal = document.getElementById('modal');
+const modalClose = document.getElementById('modal-close');
+const modalBackdrop = document.getElementById('modal-backdrop');
+let lastFocusEl = null;
+
+const TRACK_DETAILS = {
+  core: {
+    label: 'JC Joint Core',
+    title: 'Full Membership Track',
+    items: [
+      'Direct domain leadership pipeline — own a chapter from day one',
+      'Access to IEEE global network and member resources',
+      'Workshop facilitation and hands-on technical delivery',
+      'IEEE Xplore paper co-authorship opportunities',
+      'Event planning ownership across the full calendar year',
+    ]
+  },
+  associate: {
+    label: 'Associate',
+    title: 'Contributor Track',
+    items: [
+      'Project-based involvement across any domain you choose',
+      'Flexible time commitment — structured around your workload',
+      'Portfolio building: design, code, organize, and publish',
+      'Trial period that can convert to full membership',
+      'Full event access and workshop participation',
+    ]
+  }
+};
+
+function openModal(track) {
+  lastFocusEl = document.activeElement;
+  STATE.modalTrack = track || null;
+
+  // Pre-select if track given
+  if (track) {
+    goToStep2(track);
+  } else {
+    showModalStep(1);
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Focus first interactive element
+  setTimeout(() => {
+    const first = modal.querySelector('button, [tabindex="0"]');
+    if (first) first.focus();
+  }, 100);
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocusEl) lastFocusEl.focus();
+}
+
+function showModalStep(n) {
+  document.getElementById('modal-step-1').style.display = n === 1 ? 'block' : 'none';
+  document.getElementById('modal-step-2').style.display = n === 2 ? 'block' : 'none';
+  document.getElementById('modal-step-3').style.display = n === 3 ? 'block' : 'none';
+}
+
+function goToStep2(track) {
+  STATE.modalTrack = track;
+  const data = TRACK_DETAILS[track];
+  document.getElementById('s2-track-label').textContent = data.label;
+  document.getElementById('s2-title').textContent = data.title;
+
+  const list = document.getElementById('s2-list');
+  list.innerHTML = data.items.map(t =>
+    `<div class="expect-item">
+      <span class="expect-bullet">→</span>
+      <span class="expect-text">${t}</span>
+    </div>`
+  ).join('');
+
+  showModalStep(2);
+}
+
+// Track cards in scene 6
+document.querySelectorAll('#scene-6 .track-card').forEach(card => {
+  card.addEventListener('click', () => openModal(card.dataset.track));
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal(card.dataset.track);
+    }
+  });
+});
+
+// Track cards inside modal step 1
+document.getElementById('modal-core').addEventListener('click', () => goToStep2('core'));
+document.getElementById('modal-associate').addEventListener('click', () => goToStep2('associate'));
+document.getElementById('modal-core').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToStep2('core'); }
+});
+document.getElementById('modal-associate').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToStep2('associate'); }
+});
+
+document.getElementById('s2-back').addEventListener('click', () => showModalStep(1));
+document.getElementById('s2-proceed').addEventListener('click', () => showModalStep(3));
+document.getElementById('s3-back').addEventListener('click', () => showModalStep(2));
+
+// Nav & page join buttons
+document.getElementById('nav-join').addEventListener('click', () => openModal(null));
+document.querySelectorAll('.btn-join').forEach(b => b.addEventListener('click', () => openModal(null)));
+
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', closeModal);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+});
+
+// Focus trap
+modal.addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const focusable = modal.querySelectorAll('button:not([disabled]), [tabindex="0"], a[href], input, select, textarea');
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
+    e.preventDefault();
+    (e.shiftKey ? last : first).focus();
+  }
+});
+
+/* ── Notification ───────────────────────────── */
+let notifTimer;
+const notifEl = document.getElementById('notification');
+const notifText = document.getElementById('notif-text');
+
+function showNotification(text) {
+  notifText.textContent = text;
+  notifEl.classList.add('show');
+  clearTimeout(notifTimer);
+  notifTimer = setTimeout(() => notifEl.classList.remove('show'), 2800);
+}
+
+/* ── Photo grid ─────────────────────────────── */
+const IMG_DIR = 'IMG/';
+const PHOTOS = [
+  'WhatsApp Image 2026-08-09 at 11.34.18 AM.jpeg',
+  'WhatsApp Image 2026-08-09 at 11.34.19 AM.jpeg',
+  'WhatsApp Image 2026-08-09 at 11.34.20 AM.jpeg',
+  'WhatsApp Image 2026-08-09 at 11.34.21 AM.jpeg',
+  'WhatsApp Image 2026-08-09 at 11.34.22 AM.jpeg',
+  'WhatsApp Image 2026-08-09 at 11.34.23 AM.jpeg',
+];
+
+const photoGrid = document.getElementById('photo-grid');
+PHOTOS.forEach((fn, i) => {
+  const frame = document.createElement('div');
+  frame.className = 'photo-frame';
+  frame.setAttribute('role', 'listitem');
+
+  const shimmer = document.createElement('div');
+  shimmer.className = 'photo-shimmer';
+
+  const img = document.createElement('img');
+  img.alt = `IEEE RAIT event photo ${i + 1}`;
+  img.loading = 'lazy';
+  img.src = IMG_DIR + fn;
+  img.onload = () => frame.classList.add('loaded');
+  img.onerror = () => frame.style.display = 'none';
+
+  frame.appendChild(shimmer);
+  frame.appendChild(img);
+  photoGrid.appendChild(frame);
+});
+
+/* ── Mobile menu ─────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* ── WebGL ────────────────────────────────────── */
+const canvas = document.getElementById('webgl-canvas');
+let gl = null;
+let webglAvailable = false;
+let animFrameId = null;
+
+// WebGL detection
+(function detectWebGL() {
+  try {
+    const c = document.createElement('canvas');
+    gl = c.getContext('webgl2') || c.getContext('webgl');
+    if (gl) webglAvailable = true;
+  } catch(e) {}
+
+  if (!webglAvailable) {
+    document.getElementById('svg-fallback').style.display = 'block';
+    canvas.style.display = 'none';
+  }
+})();
+
+// ═══ Three.js via CDN ═══════════════════════════
+if (webglAvailable) {
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  script.onload = initThree;
+  script.onerror = () => {
+    // Fallback: show SVG
+    document.getElementById('svg-fallback').style.display = 'block';
+    canvas.style.display = 'none';
+    startPreloader(false);
+  };
+  document.head.appendChild(script);
+} else {
+  startPreloader(false);
+}
+
+// ── Preloader ─────────────────────────────────
+function startPreloader(hasThreeJS) {
+  const preloader = document.getElementById('preloader');
+  const pCanvas = document.getElementById('preloader-canvas');
+  const ctx = pCanvas.getContext('2d');
+  let W, H, DPR;
+  let t = 0;
+  let phase = 'assemble'; // assemble → hold → dissolve → done
+  let phaseStart = 0;
+  let pRaf;
+
+  const PARTICLE_COUNT = STATE.reducedMotion ? 80 : 240;
+  const particles = [];
+
+  // IEEE diamond logo points (normalized -1 to 1)
+  const LOGO_POINTS = [];
+  const steps = Math.ceil(PARTICLE_COUNT / 4);
+  for (let i = 0; i < steps; i++) {
+    const f = i / steps;
+    // Top → right → bottom → left diamond
+    const pts = [
+      [f * 0.6, -1 + f * 1.0],        // top-right side
+      [0.6 - f * 0.6, f * 1.0 - 0],   // right-bottom
+      [-f * 0.6, 1.0 - f * 1.0],      // bottom-left
+      [-0.6 + f * 0.6, -f * 1.0],     // left-top
+    ];
+    pts.forEach(p => LOGO_POINTS.push(p));
+  }
+
+  function resize() {
+    DPR = Math.min(devicePixelRatio || 1, 2);
+    W = pCanvas.width = window.innerWidth * DPR;
+    H = pCanvas.height = window.innerHeight * DPR;
+    pCanvas.style.width = window.innerWidth + 'px';
+    pCanvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    initParticles();
+  }
+
+  function initParticles() {
+    const cw = window.innerWidth, ch = window.innerHeight;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const lp = LOGO_POINTS[i % LOGO_POINTS.length];
+      const logoScale = Math.min(cw, ch) * 0.22;
+      particles[i] = {
+        x: (Math.random() - 0.5) * cw * 2,
+        y: (Math.random() - 0.5) * ch * 2,
+        tx: cw / 2 + lp[0] * logoScale,
+        ty: ch / 2 + lp[1] * logoScale,
+        dx: (Math.random() - 0.5) * 4,
+        dy: (Math.random() - 0.5) * 4 - 1,
+        size: 0.8 + Math.random() * 1.4,
+        opacity: 0.2 + Math.random() * 0.8,
+        phase: Math.random() * Math.PI * 2,
+        delay: Math.random() * 0.6,
+      };
+    }
+    phaseStart = performance.now();
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  function tick(now) {
+    t = (now - phaseStart) / 1000;
+    const cw = window.innerWidth, ch = window.innerHeight;
+
+    ctx.clearRect(0, 0, cw, ch);
+
+    const PHASE_DURATIONS = STATE.reducedMotion
+      ? { assemble: 0.3, hold: 0.2, dissolve: 0.3 }
+      : { assemble: 1.6, hold: 0.8, dissolve: 0.8 };
+
+    if (phase === 'assemble' && t > PHASE_DURATIONS.assemble) {
+      phase = 'hold'; phaseStart = now; t = 0;
+    } else if (phase === 'hold' && t > PHASE_DURATIONS.hold) {
+      phase = 'dissolve'; phaseStart = now; t = 0;
+    } else if (phase === 'dissolve' && t > PHASE_DURATIONS.dissolve) {
+      phase = 'done';
+      // Done: fade out preloader
+      preloader.classList.add('gone');
+      setTimeout(() => {
+        preloader.remove();
+        STATE.preloaderDone = true;
+        showScene(1);
+        window.dispatchEvent(new CustomEvent('preloaderDone'));
+      }, STATE.reducedMotion ? 100 : 750);
+      return;
+    }
+
+    for (const p of particles) {
+      let x = p.x, y = p.y, op = p.opacity;
+
+      if (phase === 'assemble') {
+        const prog = Math.max(0, (t - p.delay) / (1.4 - p.delay));
+        const ease = prog < 1 ? 1 - Math.pow(1 - prog, 3) : 1;
+        x = p.x + (p.tx - p.x) * ease;
+        y = p.y + (p.ty - p.y) * ease;
+        op = p.opacity * Math.min(1, prog * 2);
+      } else if (phase === 'hold') {
+        x = p.tx + Math.sin(now * 0.001 + p.phase) * 1.5;
+        y = p.ty + Math.cos(now * 0.0008 + p.phase) * 1.5;
+      } else if (phase === 'dissolve') {
+        const prog = t / 0.8;
+        const ease = prog * prog;
+        x = p.tx + p.dx * prog * 180;
+        y = p.ty + p.dy * prog * 180;
+        op = p.opacity * (1 - prog);
+      }
+
+      ctx.globalAlpha = Math.max(0, op);
+      ctx.fillStyle = '#3B5EFF';
+      ctx.beginPath();
+      ctx.arc(x, y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+    pRaf = requestAnimationFrame(tick);
+  }
+
+  // Label
+  if (!STATE.reducedMotion) {
+    pRaf = requestAnimationFrame(tick);
+  } else {
+    // Instant preloader for reduced motion
+    setTimeout(() => {
+      preloader.classList.add('gone');
+      setTimeout(() => {
+        preloader.remove();
+        STATE.preloaderDone = true;
+        showScene(1);
+        window.dispatchEvent(new CustomEvent('preloaderDone'));
+      }, 100);
+    }, 400);
+  }
+}
+
+// ── Three.js scene ────────────────────────────
+function initThree() {
+  const THREE = window.THREE;
+  if (!THREE) { startPreloader(false); return; }
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: true,
+    alpha: true,
+  });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.set(0, 0, 12);
+
+  // Camera targets
+  const CAM_Z = [12, 12, 4, 1.5, 4, 5, 3, -2];
+  const CAM_Y = [0, 0, 0, 0.5, 1.2, 1.2, 0.8, 0];
+  let targetCamZ = 12, targetCamY = 0;
+
+  // Nodes
+  const DOMAIN_COLORS = [0x3B5EFF, 0x9B6FFF, 0xFF8A3B, 0x3BFFB0, 0xFF4B6E, 0xFFCC3B];
+  const NODE_POSITIONS = [
+    [0, 0, 0],
+    [-2.8, 0.8, -0.5],
+    [2.8, 0.8, -0.5],
+    [-2.2, -1.5, 0.3],
+    [2.2, -1.5, 0.3],
+    [0, -2.8, 0],
+  ];
+
+  const nodes = [];
+  const nodePulse = [];
+
+  NODE_POSITIONS.forEach((pos, i) => {
+    const geo = new THREE.SphereGeometry(0.22, 24, 24);
+    const mat = new THREE.MeshBasicMaterial({
+      color: DOMAIN_COLORS[i],
+      transparent: true,
+      opacity: 0.9,
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(...pos);
+    scene.add(mesh);
+    nodes.push(mesh);
+    nodePulse.push(Math.random() * Math.PI * 2);
+
+    // Glow aura
+    const glowGeo = new THREE.SphereGeometry(0.55, 16, 16);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: DOMAIN_COLORS[i],
+      transparent: true,
+      opacity: 0.06,
+    });
+    scene.add(new THREE.Mesh(glowGeo, glowMat));
+  });
+
+  // Edges
+  const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[1,3],[2,4],[3,5],[4,5],[1,2]];
+  EDGES.forEach(([a, b]) => {
+    const points = [
+      new THREE.Vector3(...NODE_POSITIONS[a]),
+      new THREE.Vector3(...NODE_POSITIONS[b]),
+    ];
+    const geo = new THREE.BufferGeometry().setFromPoints(points);
+    const mat = new THREE.LineBasicMaterial({
+      color: 0x2E2E40,
+      transparent: true,
+      opacity: 0.5,
+    });
+    scene.add(new THREE.Line(geo, mat));
+  });
+
+  // Particles
+  const PART_COUNT = STATE.reducedMotion ? 60 : 320;
+  const partPositions = new Float32Array(PART_COUNT * 3);
+  const partVels = new Float32Array(PART_COUNT * 3);
+  const partPhases = new Float32Array(PART_COUNT);
+
+  for (let i = 0; i < PART_COUNT; i++) {
+    partPositions[i * 3] = (Math.random() - 0.5) * 14;
+    partPositions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+    partPositions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    partVels[i * 3] = (Math.random() - 0.5) * 0.005;
+    partVels[i * 3 + 1] = (Math.random() - 0.5) * 0.005;
+    partVels[i * 3 + 2] = (Math.random() - 0.5) * 0.003;
+    partPhases[i] = Math.random() * Math.PI * 2;
+  }
+
+  const partGeo = new THREE.BufferGeometry();
+  partGeo.setAttribute('position', new THREE.BufferAttribute(partPositions, 3));
+
+  const partMat = new THREE.PointsMaterial({
+    color: 0x3B5EFF,
+    size: 0.04,
+    transparent: true,
+    opacity: 0.35,
+    sizeAttenuation: true,
+  });
+  const particleSystem = new THREE.Points(partGeo, partMat);
+  scene.add(particleSystem);
+
+  // State
+  let currentScene = 1;
+  let dimNodes = false;
+  let selectedPath = null;
+  let clock = 0;
+
+  window.setWebGLScene = function(n) {
+    currentScene = n;
+  };
+
+  window.updateWebGLCamera = function(progress) {
+    const idx = Math.min(Math.floor(progress * (CAM_Z.length - 1)), CAM_Z.length - 2);
+    const t = (progress * (CAM_Z.length - 1)) - idx;
+    targetCamZ = CAM_Z[idx] + (CAM_Z[idx + 1] - CAM_Z[idx]) * t;
+    targetCamY = CAM_Y[idx] + (CAM_Y[idx + 1] - CAM_Y[idx]) * t;
+  };
+
+  function resizeThree() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  window.addEventListener('resize', resizeThree);
+
+  // Mouse parallax
+  let mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', e => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  }, { passive: true });
+
+  // Render loop
+  function render() {
+    animFrameId = requestAnimationFrame(render);
+    if (!STATE.preloaderDone && currentScene < 1) return;
+
+    clock += STATE.reducedMotion ? 0 : 0.016;
+
+    // Camera lerp
+    const lerpF = STATE.reducedMotion ? 1 : 0.04;
+    camera.position.z += (targetCamZ - camera.position.z) * lerpF;
+    camera.position.y += (targetCamY - camera.position.y) * lerpF;
+
+    // Subtle mouse parallax
+    if (!STATE.reducedMotion) {
+      camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.02;
+      scene.rotation.y += (mouseX * 0.05 - scene.rotation.y) * 0.03;
+      scene.rotation.x += (-mouseY * 0.03 - scene.rotation.x) * 0.03;
+    }
+
+    // Node pulse
+    nodes.forEach((n, i) => {
+      if (!STATE.reducedMotion) {
+        const pulse = Math.sin(clock * 1.2 + nodePulse[i]) * 0.5 + 0.5;
+        n.material.opacity = 0.6 + pulse * 0.35;
+        n.scale.setScalar(1 + pulse * 0.08);
+      }
+    });
+
+    // Particle drift
+    if (!STATE.reducedMotion) {
+      for (let i = 0; i < PART_COUNT; i++) {
+        partPositions[i * 3] += partVels[i * 3] + Math.sin(clock * 0.3 + partPhases[i]) * 0.001;
+        partPositions[i * 3 + 1] += partVels[i * 3 + 1] + Math.cos(clock * 0.25 + partPhases[i]) * 0.001;
+        partPositions[i * 3 + 2] += partVels[i * 3 + 2];
+
+        // Wrap
+        ['x', 'y', 'z'].forEach((_, j) => {
+          if (partPositions[i * 3 + j] > 8) partPositions[i * 3 + j] = -8;
+          if (partPositions[i * 3 + j] < -8) partPositions[i * 3 + j] = 8;
+        });
+      }
+      partGeo.attributes.position.needsUpdate = true;
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  STATE.webglReady = true;
+  render();
+  startPreloader(true);
+}
+
+/* ── Initial scene ─────────────────────────── */
+showScene(1);
+
+/* ── Announce preloader done ─────────────────── */
+window.addEventListener('preloaderDone', () => {
+  document.querySelector('[aria-live="polite"]')?.setAttribute('aria-label', 'IEEE RAIT loaded');
+});
+
+/* ── noscript support ─────────────────────── */
+// Scene 1 shows by default without JS via CSS :target fallback
+</script>
+
+<noscript>
+<style>
+  #scene-1 { opacity: 1 !important; pointer-events: auto !important; }
+  #preloader { display: none !important; }
+  #scroll-driver { height: auto !important; position: relative !important; }
+  #webgl-canvas { display: none !important; }
+  #svg-fallback { display: block !important; }
+  .chapter-progress, .progress-bar { display: none !important; }
+  .scene { position: relative !important; opacity: 1 !important; pointer-events: auto !important; }
+  #overlay { position: relative !important; }
+</style>
+<p style="position:fixed;bottom:0;left:0;right:0;background:#C9A84C;color:#0A0A0D;text-align:center;padding:8px;font-family:monospace;font-size:12px;z-index:999">
+  For the full experience, enable JavaScript. Core content is readable without it.
+</p>
+</noscript>
+
+</body>
+</html>
